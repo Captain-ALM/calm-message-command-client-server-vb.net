@@ -12,15 +12,15 @@ Public Module cs 'client and server module
 
     Public Function start_server(Optional ipadd As String = "", Optional port As UInteger = 100, Optional password2 As String = "", Optional encryptt As EncryptionMethod = EncryptionMethod.none) As String
         If current_mode = current_cs_mode.none Then
-            Dim ipaddtopass As IPAddress = IPAddress.None
+            Dim ipaddtopass2 As IPAddress = IPAddress.None
             Try
-                ipaddtopass = IPAddress.Parse(ipadd)
+                ipaddtopass2 = IPAddress.Parse(ipadd)
             Catch ex As Exception
-                ipaddtopass = IPAddress.None
+                ipaddtopass2 = IPAddress.None
             End Try
             current_mode = current_cs_mode.server
             password = password2
-            server_obj = New server(ipaddtopass, port)
+            server_obj = New server(ipaddtopass2, port)
             reg_events()
             Return server_obj.Start(password, encryptt)
         Else
