@@ -3,8 +3,8 @@ Imports System.Net
 Imports System.Security.Principal
 
 Public Module cs 'client and server module
-    Public server_obj As server = New server()
-    Public client_obj As client = New client()
+    Public server_obj As server = New server(New server_constructor)
+    Public client_obj As client = New client(New client_constructor)
     Public current_mode As current_cs_mode = current_cs_mode.none
     Public current_name As String = server_obj.ip.ToString & "-" & WindowsIdentity.GetCurrent.User.ToString
     Public password As String = ""
@@ -20,9 +20,9 @@ Public Module cs 'client and server module
             End Try
             current_mode = current_cs_mode.server
             password = password2
-            server_obj = New server(ipaddtopass2, port)
+            server_obj = New server(New server_constructor(ipaddtopass2, port))
             reg_events()
-            Return server_obj.Start(password, encryptt)
+            Return server_obj.Start(New ServerStart(New EncryptionParameter(encryptt, password)))
         Else
             Return "Could Not Start Server - Something is Already Running"
         End If
@@ -35,9 +35,9 @@ Public Module cs 'client and server module
             If Not client.CheckServer(ipadd, port) Then
                 Return "Server Not Running!"
             End If
-            client_obj = New client()
+            client_obj = New client(New client_constructor)
             reg_events()
-            Dim toret As String = client_obj.Connect(current_name, ipadd, port, password2, encryptt)
+            Dim toret As String = client_obj.Connect(New ClientStart(IPAddress.Parse(ipadd), port, current_name, New EncryptionParameter(encryptt, password2)))
             Return toret
         Else
             Return "Could Not Start Client - Something is Already Running"
@@ -150,9 +150,9 @@ Public Module cs 'client and server module
 
     Public Function get_clients() As List(Of String)
         If current_mode = current_cs_mode.server Then
-            Return server_obj.connected_clients
+            Return server_obj.ConnectedClients
         ElseIf current_mode = current_cs_mode.client Then
-            Return client_obj.connected_clients
+            Return client_obj.ConnectedClients
         Else
             Dim toret As New List(Of String)
             toret.Add("Could Not Get Clients - is the Server or Client Running?")
@@ -165,7 +165,7 @@ Public Module cs 'client and server module
             AddHandler client_obj.ServerDisconnect, AddressOf srdis
             AddHandler client_obj.ServerMessage, AddressOf srmsg
         ElseIf current_mode = current_cs_mode.server Then
-            AddHandler server_obj.ClientConnect, AddressOf clcon
+            AddHandler server_obj.ClientConnectSuccess, AddressOf clcon
             AddHandler server_obj.ClientDisconnect, AddressOf cldis
             AddHandler server_obj.ClientMessage, AddressOf clmsg
         End If
@@ -176,7 +176,7 @@ Public Module cs 'client and server module
             RemoveHandler client_obj.ServerDisconnect, AddressOf srdis
             RemoveHandler client_obj.ServerMessage, AddressOf srmsg
         ElseIf current_mode = current_cs_mode.server Then
-            RemoveHandler server_obj.ClientConnect, AddressOf clcon
+            RemoveHandler server_obj.ClientConnectSuccess, AddressOf clcon
             RemoveHandler server_obj.ClientDisconnect, AddressOf cldis
             RemoveHandler server_obj.ClientMessage, AddressOf clmsg
         End If
@@ -198,6 +198,9 @@ Public Module cs 'client and server module
 
     Private Sub srdis()
         log_cs = log_cs & "Server Disconnected : " & client_obj.Name & ControlChars.CrLf
+        client_obj.Flush()
+        unreg_events()
+        current_mode = current_cs_mode.none
     End Sub
 
     Private Sub srmsg(packetsent As packet)
