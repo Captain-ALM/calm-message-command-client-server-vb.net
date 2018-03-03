@@ -49,8 +49,9 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="calmclientandserver">
-      <HintPath>..\..\calmclientandserver\calmclientandserver\bin\Release\calmclientandserver.dll</HintPath>
+    <Reference Include="calmclientandserver, Version=0.1.6.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\calmclientandserver\calmclientandserver\bin\Release\calmclientandserver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

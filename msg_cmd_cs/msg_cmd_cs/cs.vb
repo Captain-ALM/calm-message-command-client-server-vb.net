@@ -164,6 +164,7 @@ Public Module cs 'client and server module
         If current_mode = current_cs_mode.client Then
             AddHandler client_obj.ServerDisconnect, AddressOf srdis
             AddHandler client_obj.ServerMessage, AddressOf srmsg
+            AddHandler client_obj.ServerConnectFailed, AddressOf srcf
         ElseIf current_mode = current_cs_mode.server Then
             AddHandler server_obj.ClientConnectSuccess, AddressOf clcon
             AddHandler server_obj.ClientDisconnect, AddressOf cldis
@@ -175,6 +176,7 @@ Public Module cs 'client and server module
         If current_mode = current_cs_mode.client Then
             RemoveHandler client_obj.ServerDisconnect, AddressOf srdis
             RemoveHandler client_obj.ServerMessage, AddressOf srmsg
+            RemoveHandler client_obj.ServerConnectFailed, AddressOf srcf
         ElseIf current_mode = current_cs_mode.server Then
             RemoveHandler server_obj.ClientConnectSuccess, AddressOf clcon
             RemoveHandler server_obj.ClientDisconnect, AddressOf cldis
@@ -194,6 +196,13 @@ Public Module cs 'client and server module
         log_cs = log_cs & "Client Message : " & clientname & ControlChars.CrLf
         log_cs = log_cs & packetsent.referencenumber & " : " & packetsent.header & " : sender : " & packetsent.sender & ControlChars.CrLf
         log_cs = log_cs & "Message : " & packetsent.stringdata(password) & ControlChars.CrLf
+    End Sub
+
+    Private Sub srcf(ByVal r As failed_connection_reason)
+        log_cs = log_cs & "Server Connection Failed : " & client_obj.Name & " : Reason : " & r.ToString & ControlChars.CrLf
+        client_obj.Flush()
+        unreg_events()
+        current_mode = current_cs_mode.none
     End Sub
 
     Private Sub srdis()

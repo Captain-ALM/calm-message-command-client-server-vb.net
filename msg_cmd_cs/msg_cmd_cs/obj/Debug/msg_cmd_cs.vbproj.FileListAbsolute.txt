@@ -26,3 +26,17 @@ E:\documents\vs2013\Projects\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.AboutBx.
 E:\documents\vs2013\Projects\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.main.resources
 E:\documents\vs2013\Projects\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.Resources.resources
 E:\documents\vs2013\Projects\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.vbproj.GenerateResource.Cache
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.exe
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.xml
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.pdb
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\msg_cmd_cs.exe
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\msg_cmd_cs.pdb
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\msg_cmd_cs.xml
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\calmclientandserver.dll
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\calmclientandserver.pdb
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Debug\calmclientandserver.xml
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.vbprojResolveAssemblyReference.cache
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.AboutBx.resources
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.main.resources
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.Resources.resources
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Debug\msg_cmd_cs.vbproj.GenerateResource.Cache
