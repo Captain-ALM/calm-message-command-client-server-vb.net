@@ -3,8 +3,8 @@ Imports System.Net
 Imports System.Security.Principal
 
 Public Module cs 'client and server module
-    Public server_obj As server = New server(New server_constructor)
-    Public client_obj As client = New client(New client_constructor)
+    Public server_obj As Server = New Server(New ServerConstructor)
+    Public client_obj As Client = New Client(New ClientConstructor)
     Public current_mode As current_cs_mode = current_cs_mode.none
     Public current_name As String = server_obj.ip.ToString & "-" & WindowsIdentity.GetCurrent.User.ToString
     Public password As String = ""
@@ -20,7 +20,7 @@ Public Module cs 'client and server module
             End Try
             current_mode = current_cs_mode.server
             password = password2
-            server_obj = New server(New server_constructor(ipaddtopass2, port))
+            server_obj = New Server(New ServerConstructor(ipaddtopass2, port))
             reg_events()
             Return server_obj.Start(New ServerStart(New EncryptionParameter(encryptt, password)))
         Else
@@ -32,10 +32,10 @@ Public Module cs 'client and server module
         If current_mode = current_cs_mode.none Then
             current_mode = current_cs_mode.client
             password = password2
-            If Not client.CheckServer(ipadd, port) Then
+            If Not Client.CheckServer(IPAddress.Parse(ipadd), port) Then
                 Return "Server Not Running!"
             End If
-            client_obj = New client(New client_constructor)
+            client_obj = New Client(New ClientConstructor)
             reg_events()
             Dim toret As String = client_obj.Connect(New ClientStart(IPAddress.Parse(ipadd), port, current_name, New EncryptionParameter(encryptt, password2)))
             Return toret
@@ -47,7 +47,7 @@ Public Module cs 'client and server module
     Public Function stop_server() As String
         If current_mode = current_cs_mode.server Then
             server_obj.Stop()
-            server_obj.flush()
+            server_obj.Clean()
             unreg_events()
             current_mode = current_cs_mode.none
             Return True
@@ -59,7 +59,7 @@ Public Module cs 'client and server module
     Public Function stop_client() As String
         If current_mode = current_cs_mode.client Then
             client_obj.Disconnect()
-            client_obj.flush()
+            client_obj.Clean()
             unreg_events()
             current_mode = current_cs_mode.none
             Return True
@@ -198,16 +198,16 @@ Public Module cs 'client and server module
         log_cs = log_cs & "Message : " & packetsent.stringdata(password) & ControlChars.CrLf
     End Sub
 
-    Private Sub srcf(ByVal r As failed_connection_reason)
+    Private Sub srcf(ByVal r As FailedConnectionReason)
         log_cs = log_cs & "Server Connection Failed : " & client_obj.Name & " : Reason : " & r.ToString & ControlChars.CrLf
-        client_obj.Flush()
+        client_obj.Clean()
         unreg_events()
         current_mode = current_cs_mode.none
     End Sub
 
     Private Sub srdis()
         log_cs = log_cs & "Server Disconnected : " & client_obj.Name & ControlChars.CrLf
-        client_obj.Flush()
+        client_obj.Clean()
         unreg_events()
         current_mode = current_cs_mode.none
     End Sub
@@ -230,7 +230,7 @@ Public Module cs 'client and server module
 
     Public Function server_up(server As String, Optional port As UInteger = 100) As String
         If current_mode = current_cs_mode.none Then
-            Return client.CheckServer(server, port)
+            Return Client.CheckServer(IPAddress.Parse(server), port)
         End If
         Return "The Server or Client is Already Running."
     End Function

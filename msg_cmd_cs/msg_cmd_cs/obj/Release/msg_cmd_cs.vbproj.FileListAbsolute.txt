@@ -36,7 +36,7 @@ C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_c
 C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Release\calmclientandserver.pdb
 C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\bin\Release\calmclientandserver.xml
 C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\msg_cmd_cs.vbprojResolveAssemblyReference.cache
-C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\msg_cmd_cs.AboutBx.resources
-C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\msg_cmd_cs.main.resources
-C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\msg_cmd_cs.Resources.resources
 C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\msg_cmd_cs.vbproj.GenerateResource.Cache
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\captainalm.msg_cmd_cs.AboutBx.resources
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\captainalm.msg_cmd_cs.main.resources
+C:\Users\Alfred\Documents\GitHub\calm-message-command-client-server-vb.net\msg_cmd_cs\msg_cmd_cs\obj\Release\captainalm.msg_cmd_cs.Resources.resources

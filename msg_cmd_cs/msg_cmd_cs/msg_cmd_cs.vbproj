@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A27BA1C0-A086-435F-8851-5BFB86D22C47}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>msg_cmd_cs.My.MyApplication</StartupObject>
-    <RootNamespace>msg_cmd_cs</RootNamespace>
+    <StartupObject>captainalm.msg_cmd_cs.My.MyApplication</StartupObject>
+    <RootNamespace>captainalm.msg_cmd_cs</RootNamespace>
     <AssemblyName>msg_cmd_cs</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
